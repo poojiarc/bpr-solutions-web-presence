@@ -1,8 +1,13 @@
 import { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Home, Info, Wrench, GraduationCap, Briefcase, FolderOpen, Phone, Menu, X, ChevronDown } from "lucide-react";
+import { Home, Info, Wrench, GraduationCap, Briefcase, FolderOpen, Phone, Menu, X, ChevronDown, ChevronRight, icons } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import bprLogo from "@/assets/bpr-logo.svg";
 import { servicesData } from "@/lib/servicesData";
+
+const getIcon = (name: string): LucideIcon => {
+  return (icons as Record<string, LucideIcon>)[name] || icons["Circle"];
+};
 
 const navItems = [
   { label: "Home", path: "/", icon: Home },
