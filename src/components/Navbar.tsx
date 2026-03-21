@@ -1,8 +1,13 @@
 import { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Home, Info, Wrench, GraduationCap, Briefcase, FolderOpen, Phone, Menu, X, ChevronDown } from "lucide-react";
+import { Home, Info, Wrench, GraduationCap, Briefcase, FolderOpen, Phone, Menu, X, ChevronDown, ChevronRight, icons } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 import bprLogo from "@/assets/bpr-logo.svg";
 import { servicesData } from "@/lib/servicesData";
+
+const getIcon = (name: string): LucideIcon => {
+  return (icons as Record<string, LucideIcon>)[name] || icons["Circle"];
+};
 
 const navItems = [
   { label: "Home", path: "/", icon: Home },
@@ -90,38 +95,49 @@ const Navbar = () => {
                         <div className="flex">
                           {/* Left: service list */}
                           <div className="w-[240px] border-r border-[hsl(var(--border)/0.15)] py-2">
-                            {servicesData.map((service, i) => (
-                              <Link
-                                key={service.id}
-                                to={`/services/${service.id}`}
-                                className={`flex items-center gap-2 px-4 py-2.5 text-sm transition-colors ${
-                                  i === activeService
-                                    ? "bg-[hsl(var(--glow)/0.15)] text-[hsl(var(--glow))]"
-                                    : "text-[hsl(var(--nav-foreground)/0.7)] hover:text-[hsl(var(--glow))] hover:bg-[hsl(var(--glow)/0.05)]"
-                                }`}
-                                onMouseEnter={() => setActiveService(i)}
-                              >
-                                <ChevronDown className="w-3 h-3 -rotate-90" />
-                                {service.name}
-                              </Link>
-                            ))}
+                            {servicesData.map((service, i) => {
+                              const SvcIcon = getIcon(service.icon);
+                              return (
+                                <Link
+                                  key={service.id}
+                                  to={`/services/${service.id}`}
+                                  className={`flex items-center gap-2.5 px-4 py-2.5 text-sm transition-colors ${
+                                    i === activeService
+                                      ? "bg-[hsl(var(--glow)/0.15)] text-[hsl(var(--glow))]"
+                                      : "text-[hsl(var(--nav-foreground)/0.7)] hover:text-[hsl(var(--glow))] hover:bg-[hsl(var(--glow)/0.05)]"
+                                  }`}
+                                  onMouseEnter={() => setActiveService(i)}
+                                >
+                                  <SvcIcon className="w-4 h-4" />
+                                  <span className="flex-1">{service.name}</span>
+                                  <ChevronRight className="w-3 h-3" />
+                                </Link>
+                              );
+                            })}
                           </div>
 
-                          {/* Right: sub-services panel */}
+                          {/* Right: sub-services as icon cards */}
                           <div className="flex-1 p-5">
                             <h4 className="text-[hsl(var(--glow))] font-semibold mb-4 text-sm uppercase tracking-wider">
-                              {servicesData[activeService]?.name} Sub-Services
+                              {servicesData[activeService]?.name} Services
                             </h4>
-                            <div className="grid grid-cols-2 gap-2">
-                              {servicesData[activeService]?.subServices.map((sub) => (
-                                <div
-                                  key={sub.name}
-                                  className="flex items-center gap-2 px-3 py-2 rounded-lg text-[hsl(var(--nav-foreground)/0.7)] text-sm hover:bg-[hsl(var(--glow)/0.05)] hover:text-[hsl(var(--glow))] transition-colors"
-                                >
-                                  <span className="w-1.5 h-1.5 rounded-full bg-[hsl(var(--glow)/0.5)]" />
-                                  {sub.name}
-                                </div>
-                              ))}
+                            <div className="grid grid-cols-3 gap-3">
+                              {servicesData[activeService]?.subServices.map((sub) => {
+                                const SubIcon = getIcon(sub.icon);
+                                return (
+                                  <div
+                                    key={sub.name}
+                                    className="flex flex-col items-center gap-2 p-3 rounded-lg bg-[hsl(var(--glow)/0.04)] border border-[hsl(var(--glow)/0.08)] hover:border-[hsl(var(--glow)/0.2)] hover:bg-[hsl(var(--glow)/0.08)] transition-colors cursor-default"
+                                  >
+                                    <div className="p-2 rounded-lg bg-[hsl(var(--glow)/0.1)]">
+                                      <SubIcon className="w-5 h-5 text-[hsl(var(--glow))]" />
+                                    </div>
+                                    <span className="text-[hsl(var(--nav-foreground)/0.75)] text-[11px] text-center leading-tight font-medium">
+                                      {sub.name}
+                                    </span>
+                                  </div>
+                                );
+                              })}
                             </div>
                             <Link
                               to={`/services/${servicesData[activeService]?.id}`}
