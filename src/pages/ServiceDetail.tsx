@@ -1,11 +1,16 @@
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, CheckCircle } from "lucide-react";
+import { ArrowLeft, CheckCircle, icons } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 import ImageSlider from "@/components/ImageSlider";
 import { servicesData } from "@/lib/servicesData";
+import type { LucideIcon } from "lucide-react";
 import hero1 from "@/assets/hero-1.jpg";
 import hero2 from "@/assets/hero-2.jpg";
 import hero3 from "@/assets/hero-3.jpg";
+
+const getIcon = (name: string): LucideIcon => {
+  return (icons as Record<string, LucideIcon>)[name] || icons["Circle"];
+};
 
 const ServiceDetail = () => {
   const { serviceId } = useParams();
@@ -19,6 +24,8 @@ const ServiceDetail = () => {
       </div>
     );
   }
+
+  const description = service.detailedDescription || service.description;
 
   return (
     <div>
@@ -47,15 +54,22 @@ const ServiceDetail = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <ScrollReveal direction="left">
               <h2 className="text-3xl font-bold text-foreground mb-6">{service.name} Services</h2>
-              <p className="text-muted-foreground leading-relaxed mb-8">{service.description}</p>
-              <h3 className="text-xl font-semibold text-foreground mb-4">What we offer:</h3>
+              {description.split('\n\n').map((paragraph, idx) => (
+                <p key={idx} className="text-muted-foreground leading-relaxed mb-4">{paragraph}</p>
+              ))}
+              <h3 className="text-xl font-semibold text-foreground mb-4 mt-8">What we offer:</h3>
               <ul className="space-y-3">
-                {service.subServices.map((sub) => (
-                  <li key={sub.name} className="flex items-center gap-3 text-muted-foreground">
-                    <CheckCircle className="w-5 h-5 text-[hsl(var(--primary))] flex-shrink-0" />
-                    {sub.name}
-                  </li>
-                ))}
+                {service.subServices.map((sub) => {
+                  const SubIcon = getIcon(sub.icon);
+                  return (
+                    <li key={sub.name} className="flex items-center gap-3 text-muted-foreground">
+                      <div className="p-1.5 rounded-lg bg-[hsl(var(--primary)/0.1)]">
+                        <SubIcon className="w-4 h-4 text-[hsl(var(--primary))] flex-shrink-0" />
+                      </div>
+                      {sub.name}
+                    </li>
+                  );
+                })}
               </ul>
             </ScrollReveal>
             <ScrollReveal direction="right">
