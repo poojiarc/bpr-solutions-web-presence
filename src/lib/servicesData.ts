@@ -162,15 +162,15 @@ export const servicesData: ServiceData[] = [
     subServices: [
       { name: "Practice Financial Evaluation", icon: "BarChart" },
       { name: "Medical Billing", icon: "FileText" },
-      { name: "Coding Services", icon: "Code" },
+      { name: "Medical Coding", icon: "Code" },
       { name: "Claims Management", icon: "ClipboardCheck" },
       { name: "Revenue Optimization", icon: "TrendingUp" },
       { name: "Compliance & Auditing", icon: "Shield" },
     ],
   },
   {
-    id: "data-annotation",
-    name: "Data Annotation",
+    id: "clinical-annotation",
+    name: "Clinical Annotation",
     icon: "Tag",
     image: serviceAnnotation,
     description: "Professional data annotation and labeling services for AI/ML training across image, video, and text.",

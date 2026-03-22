@@ -94,25 +94,7 @@ const About = () => {
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="section-dark py-16">
-        <div className="container mx-auto px-4 lg:px-8">
-          <ScrollReveal>
-            <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto text-center">
-              {[
-                { num: "200+", label: "Projects Completed" },
-                { num: "5+", label: "Years Experience" },
-                { num: "50+", label: "Global Clients" },
-              ].map((stat) => (
-                <div key={stat.label}>
-                  <div className="text-3xl lg:text-4xl font-bold text-[hsl(var(--glow))]">{stat.num}</div>
-                  <div className="text-sm text-[hsl(var(--section-dark-foreground)/0.6)] mt-1">{stat.label}</div>
-                </div>
-              ))}
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
+
 
       {/* CTA */}
       <section className="py-20">
