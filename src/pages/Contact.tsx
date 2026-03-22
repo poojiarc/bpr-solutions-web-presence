@@ -33,7 +33,9 @@ const Contact = () => {
                   { icon: Phone, label: "Phone", value: "+91 96763 56969", href: "tel:+919676356969" },
                   { icon: Mail, label: "Email", value: "tjyothi@bprsolutions.in", href: "mailto:tjyothi@bprsolutions.in" },
                   { icon: MapPin, label: "Address", value: "2nd floor, Above ICICI Bank, GCC Layout, Plot No. 19, Chaitanya Nagar, Kommadi, Visakhapatnam, Andhra Pradesh 530048" },
-                  { icon: Instagram, label: "Instagram", value: "@bprsolutions", href: "https://instagram.com/bprsolutions" },
+                  { icon: Instagram, label: "Instagram", value: "@bprsolutions.2000", href: "https://instagram.com/bprsolutions.2000" },
+                  { icon: Facebook, label: "Facebook", value: "BPR Solutions", href: "https://facebook.com/share" },
+                  { icon: Linkedin, label: "LinkedIn", value: "BPR Solutions", href: "https://linkedin.com/company/bprsolutions" },
                   { icon: Clock, label: "Working Hours", value: "Mon–Sat: 8 hrs | Sunday: Closed" },
                 ].map((item) => (
                   <div key={item.label} className="flex items-start gap-4">

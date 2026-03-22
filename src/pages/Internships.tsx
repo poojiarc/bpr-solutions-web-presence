@@ -20,8 +20,8 @@ const courses = [
     description: "Strong foundation in Geographic Information Systems and their real-world applications. Covers spatial data creation, analysis, and visualization using industry-standard GIS tools.",
   },
   {
-    title: "Medical Training",
-    description: "Specialized training programs in medical data annotation, health informatics, and digital health documentation. Learn to work with medical imaging data and health records management.",
+    title: "Medical Coding",
+    description: "The specialized process of converting healthcare diagnoses, procedures, and services into universal, standardized alphanumeric codes used for billing and documentation.",
   },
 ];
 

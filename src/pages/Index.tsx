@@ -90,18 +90,8 @@ const Index = () => {
               <p className="text-muted-foreground leading-relaxed mb-6">
                 BPR Solutions Pvt. Ltd. is a global engineering and technology solutions provider specializing in Telecom Engineering, GIS Drafting & Mapping, LiDAR, BIM, CYCLONE Modeling, FTTH/FTTx engineering, PERMITS, and AutoCAD. Headquartered in Visakhapatnam, India, we support clients worldwide by delivering high-precision, cost-effective, and innovative digital engineering solutions.
               </p>
-              <div className="grid grid-cols-3 gap-6 mb-8">
-                {[
-                  { num: "200+", label: "Projects" },
-                  { num: "5+", label: "Years Exp." },
-                  { num: "50+", label: "Clients" },
-                ].map((stat) => (
-                  <div key={stat.label}>
-                    <div className="text-2xl lg:text-3xl font-bold text-[hsl(var(--primary))]">{stat.num}</div>
-                    <div className="text-sm text-muted-foreground">{stat.label}</div>
-                  </div>
-                ))}
-              </div>
+
+
               <Link
                 to="/about"
                 className="inline-flex items-center gap-2 text-[hsl(var(--primary))] font-semibold hover:underline"

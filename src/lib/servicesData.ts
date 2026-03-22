@@ -169,8 +169,8 @@ export const servicesData: ServiceData[] = [
     ],
   },
   {
-    id: "data-annotation",
-    name: "Data Annotation",
+    id: "clinical-annotation",
+    name: "Clinical Annotation",
     icon: "Tag",
     image: serviceAnnotation,
     description: "Professional data annotation and labeling services for AI/ML training across image, video, and text.",
