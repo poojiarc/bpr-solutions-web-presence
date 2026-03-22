@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 import { Send, Briefcase, Heart } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 
