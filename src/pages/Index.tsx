@@ -37,45 +37,9 @@ const Index = () => {
         ))}
         <div className="absolute inset-0 bg-gradient-to-r from-[hsl(var(--hero-overlay)/0.92)] via-[hsl(var(--hero-overlay)/0.75)] to-[hsl(var(--hero-overlay)/0.4)]" />
 
-        {/* Floating social icons - Left */}
-        <div className="hidden lg:flex absolute left-4 xl:left-8 top-1/2 -translate-y-1/2 flex-col gap-4 z-10">
-          {[
-            { icon: Phone, href: "tel:+919676356969", label: "Phone" },
-            { icon: Mail, href: "mailto:tjyothi@bprsolutions.in", label: "Email" },
-            { icon: Instagram, href: "https://www.instagram.com/bprsolutions.2000?igsh=YnZ2bXh4aG10amU=", label: "Instagram" },
-          ].map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              target={item.href.startsWith("http") ? "_blank" : undefined}
-              rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-              className="w-10 h-10 rounded-full bg-[hsl(var(--section-dark-foreground)/0.1)] border border-[hsl(var(--section-dark-foreground)/0.2)] backdrop-blur-sm flex items-center justify-center text-[hsl(var(--section-dark-foreground)/0.7)] hover:text-[hsl(var(--glow))] hover:border-[hsl(var(--glow)/0.5)] hover:bg-[hsl(var(--glow)/0.1)] transition-all active:scale-[0.95]"
-              aria-label={item.label}
-            >
-              <item.icon className="w-4 h-4" />
-            </a>
-          ))}
-        </div>
+      
 
-        {/* Floating social icons - Right */}
-        <div className="hidden lg:flex absolute right-4 xl:right-8 top-1/2 -translate-y-1/2 flex-col gap-4 z-10">
-          {[
-            { icon: Facebook, href: "https://www.facebook.com/share/1ERFjH3DS7/", label: "Facebook" },
-            { icon: Linkedin, href: "https://www.linkedin.com/company/109966290/admin/dashboard/", label: "LinkedIn" },
-            { icon: MapPin, href: "/contact", label: "Location" },
-          ].map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              target={item.href.startsWith("http") ? "_blank" : undefined}
-              rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-              className="w-10 h-10 rounded-full bg-[hsl(var(--section-dark-foreground)/0.1)] border border-[hsl(var(--section-dark-foreground)/0.2)] backdrop-blur-sm flex items-center justify-center text-[hsl(var(--section-dark-foreground)/0.7)] hover:text-[hsl(var(--glow))] hover:border-[hsl(var(--glow)/0.5)] hover:bg-[hsl(var(--glow)/0.1)] transition-all active:scale-[0.95]"
-              aria-label={item.label}
-            >
-              <item.icon className="w-4 h-4" />
-            </a>
-          ))}
-        </div>
+       
         <div className="relative container mx-auto px-4 lg:px-8 h-full flex items-center">
           <div className="max-w-2xl">
             <p className="text-[hsl(var(--glow))] text-sm font-semibold tracking-[0.2em] uppercase mb-4 animate-hero-fade">
@@ -85,7 +49,7 @@ const Index = () => {
               Empowering Growth Through Digital Engineering
             </h1>
             <p className="text-lg text-[hsl(var(--section-dark-foreground)/0.75)] mb-8 max-w-xl animate-hero-fade" style={{ animationDelay: "400ms" }}>
-              BPR Solutions is a global engineering and technology solutions provider specializing in Telecom, GIS, LiDAR, BIM, CYCLONE Modeling, Survey, Clinical Annotation, and innovative digital solutions.
+              BPR Solutions is a global engineering and technology solutions provider specializing in Telecom, GIS, LiDAR, BIM, CYCLONE Modeling, Survey,Data Annotation, and innovative digital solutions.
             </p>
             <div className="flex flex-wrap gap-4 animate-hero-fade" style={{ animationDelay: "600ms" }}>
               <Link
@@ -128,7 +92,7 @@ const Index = () => {
                 Welcome to BPR Solutions
               </h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                BPR Solutions Pvt. Ltd. is a global engineering and technology solutions provider specializing in Telecom Engineering, GIS Drafting & Mapping, LiDAR, BIM, CYCLONE Modeling, FTTH/FTTx engineering, PERMITS, Survey, RCM, Clinical Annotation, E-publication, Digital Marketing, and AutoCAD. Headquartered in Visakhapatnam, India, we support clients worldwide by delivering high-precision, cost-effective, and innovative digital engineering solutions.
+                BPR Solutions is a global engineering and technology solutions provider specializing in Telecom Engineering | GIS Drafting & Mapping | LIDAR | BIM, CYCLONE Modeling | Survey |Data Annotation, and innovative digital solutions. Headquartered in Visakhapatnam, India, we support clients worldwide by delivering high-precision, cost-effective, and innovative digital engineering solutions.
               </p>
 
 
@@ -140,8 +104,12 @@ const Index = () => {
               </Link>
             </ScrollReveal>
             <ScrollReveal direction="right">
-              <ImageSlider images={aboutImages} className="w-full aspect-[4/3] rounded-2xl" />
-            </ScrollReveal>
+  <div className="w-full h-[320px] md:h-[420px] lg:h-[450px] rounded-2xl overflow-hidden shadow-xl">
+  <ImageSlider images={aboutImages} />
+</div>
+
+
+</ScrollReveal>
           </div>
         </div>
       </section>

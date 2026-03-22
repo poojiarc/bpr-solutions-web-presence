@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Home, Info, Wrench, GraduationCap, Briefcase, FolderOpen, Phone, Menu, X, ChevronDown, ChevronRight, Heart, icons } from "lucide-react";
+import { Home, Info, Wrench, GraduationCap, Mail, Briefcase, FolderOpen, Phone, Menu, X, ChevronDown, ChevronRight, Heart, icons } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import bprLogo from "@/assets/bpr-logo.svg";
 import { servicesData } from "@/lib/servicesData";
@@ -59,19 +59,41 @@ const Navbar = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-[hsl(var(--nav-bg)/0.95)] shadow-lg shadow-[hsl(var(--glow)/0.05)] backdrop-blur-md"
-          : "bg-[hsl(var(--nav-bg))]"
-      }`}
-    >
+ return (
+    <nav className="fixed top-0 left-0 right-0 z-50">
+
+      {/* 🔵 TOP MAIL BAR */}
+      <div className="w-full bg-[hsl(var(--primary))] text-white text-sm py-2">
+        <div className="container mx-auto px-4 lg:px-8 flex justify-between items-center">
+          
+          {/* Email */}
+          <div className="flex items-center gap-2">
+            <Mail className="w-4 h-4" />
+            <span>info@bprsolutions.in</span>
+          </div>
+
+          {/* Optional Right Side */}
+          <div className="hidden md:flex gap-4 text-xs">
+            <span className="hover:opacity-80 cursor-pointer">Facebook</span>
+            <span className="hover:opacity-80 cursor-pointer">Instagram</span>
+            <span className="hover:opacity-80 cursor-pointer">LinkedIn</span>
+          </div>
+        </div>
+      </div>
+
+      {/* 🔵 MAIN NAVBAR */}
+      <div
+        className={`transition-all duration-300 ${
+          scrolled
+            ? "bg-[hsl(var(--nav-bg)/0.95)] shadow-lg backdrop-blur-md"
+            : "bg-[hsl(var(--nav-bg))]"
+        }`}
+      >
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link to="/" className="flex-shrink-0">
-            <img src={bprLogo} alt="BPR Solutions" className="h-12 lg:h-14 w-auto" />
+            <img src={bprLogo} alt="BPR Solutions" className="h-16 lg:h-20 w-auto" />
           </Link>
 
           {/* Desktop nav */}
@@ -242,6 +264,7 @@ const Navbar = () => {
       </div>
 
       {/* Mobile menu */}
+            {/* Mobile menu */}
       {mobileOpen && (
         <div className="lg:hidden bg-[hsl(var(--nav-bg))] border-t border-[hsl(var(--border)/0.15)] pb-4">
           {navItems.map((item) => {
@@ -259,7 +282,12 @@ const Navbar = () => {
           })}
         </div>
       )}
+
+      {/* ✅ THIS IS THE MISSING DIV */}
+      </div> 
+
     </nav>
+
   );
 };
 

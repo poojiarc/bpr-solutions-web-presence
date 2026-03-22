@@ -71,7 +71,16 @@
     color: hsl(var(--section-dark-foreground));
   }
 }
+.icon {
+  width: 20px;
+  height: 20px;
+  color: white;
+  transition: 0.3s;
+}
 
+.group:hover .icon {
+  color: black;
+}
 /* Scroll reveal animations */
 @keyframes reveal-up {
   from {

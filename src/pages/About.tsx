@@ -29,7 +29,7 @@ const About = () => {
             <ScrollReveal direction="left">
               <h2 className="text-3xl font-bold text-foreground mb-6">Welcome to BPR Solutions</h2>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                BPR Solutions Pvt. Ltd. is a global engineering and technology solutions provider specializing in Telecom Engineering | GIS Drafting & Mapping | LiDAR | BIM, CYCLONE Modeling | FTTH/FTTx engineering | PERMITS | AutoCAD. Headquartered in Visakhapatnam, India, we support clients worldwide by delivering high-precision, cost-effective, and innovative digital engineering solutions.
+                BPR Solutions is a global engineering and technology solutions provider specializing in Telecom Engineering | GIS Drafting & Mapping | LIDAR | BIM, CYCLONE Modeling | Survey |Data Annotation, and innovative digital solutions. Headquartered in Visakhapatnam, India, we support clients worldwide by delivering high-precision, cost-effective, and innovative digital engineering solutions.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-8">
                 Our team of experienced engineers and technicians work with cutting-edge technology to deliver projects with accuracy, efficiency, and on-time delivery. We serve clients across telecom, infrastructure, construction, and environmental sectors.
