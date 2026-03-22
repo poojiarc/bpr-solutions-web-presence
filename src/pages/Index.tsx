@@ -85,7 +85,7 @@ const Index = () => {
               Empowering Growth Through Digital Engineering
             </h1>
             <p className="text-lg text-[hsl(var(--section-dark-foreground)/0.75)] mb-8 max-w-xl animate-hero-fade" style={{ animationDelay: "400ms" }}>
-              BPR Solutions is a global engineering and technology solutions provider specializing in Telecom, GIS, LiDAR, BIM, and innovative digital solutions.
+              BPR Solutions is a global engineering and technology solutions provider specializing in Telecom, GIS, LiDAR, BIM, CYCLONE Modeling, Survey, Clinical Annotation, and innovative digital solutions.
             </p>
             <div className="flex flex-wrap gap-4 animate-hero-fade" style={{ animationDelay: "600ms" }}>
               <Link
