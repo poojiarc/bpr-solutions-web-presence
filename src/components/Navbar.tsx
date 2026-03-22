@@ -51,6 +51,9 @@ const Navbar = () => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
         setServicesOpen(false);
       }
+      if (careersRef.current && !careersRef.current.contains(e.target as Node)) {
+        setCareersOpen(false);
+      }
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
