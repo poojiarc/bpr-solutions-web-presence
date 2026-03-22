@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ArrowRight, Phone, MapPin, Mail } from "lucide-react";
+import { ArrowRight, Phone, MapPin, Mail, Instagram, Facebook, Linkedin } from "lucide-react";
 import ServiceCard from "@/components/ServiceCard";
 import hero1 from "@/assets/hero-1.jpg";
 import hero2 from "@/assets/hero-2.jpg";
