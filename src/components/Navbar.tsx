@@ -9,12 +9,17 @@ const getIcon = (name: string): LucideIcon => {
   return (icons as Record<string, LucideIcon>)[name] || icons["Circle"];
 };
 
+const careersDropdownItems = [
+  { label: "Culture", path: "/careers?tab=culture", icon: Heart },
+  { label: "Jobs", path: "/careers?tab=jobs", icon: Briefcase },
+];
+
 const navItems = [
   { label: "Home", path: "/", icon: Home },
   { label: "About", path: "/about", icon: Info },
   { label: "Services", path: "/services", icon: Wrench, hasDropdown: true },
   { label: "Internships", path: "/internships", icon: GraduationCap },
-  { label: "Careers", path: "/careers", icon: Briefcase },
+  { label: "Careers", path: "/careers", icon: Briefcase, hasCareersDropdown: true },
   { label: "Projects", path: "/projects", icon: FolderOpen },
   { label: "Contact", path: "/contact", icon: Phone },
 ];
