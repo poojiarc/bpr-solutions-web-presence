@@ -164,6 +164,47 @@ const Navbar = () => {
                 );
               }
 
+              if (item.hasCareersDropdown) {
+                return (
+                  <div key={item.label} className="relative" ref={careersRef}>
+                    <button
+                      className={`flex items-center gap-1.5 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
+                        isActive || careersOpen
+                          ? "text-[hsl(var(--glow))]"
+                          : "text-[hsl(var(--nav-foreground))] hover:text-[hsl(var(--glow))]"
+                      }`}
+                      onMouseEnter={() => setCareersOpen(true)}
+                      onClick={() => setCareersOpen(!careersOpen)}
+                    >
+                      <Icon className="w-4 h-4" />
+                      {item.label}
+                      <ChevronDown className={`w-3.5 h-3.5 transition-transform ${careersOpen ? "rotate-180" : ""}`} />
+                    </button>
+
+                    {careersOpen && (
+                      <div
+                        className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[200px] bg-[hsl(var(--nav-bg))] border border-[hsl(var(--border)/0.2)] rounded-xl shadow-2xl shadow-[hsl(var(--glow)/0.1)] overflow-hidden py-2"
+                        onMouseLeave={() => setCareersOpen(false)}
+                      >
+                        {careersDropdownItems.map((dropItem) => {
+                          const DropIcon = dropItem.icon;
+                          return (
+                            <Link
+                              key={dropItem.label}
+                              to={dropItem.path}
+                              className="flex items-center gap-2.5 px-4 py-2.5 text-sm text-[hsl(var(--nav-foreground)/0.7)] hover:text-[hsl(var(--glow))] hover:bg-[hsl(var(--glow)/0.05)] transition-colors"
+                            >
+                              <DropIcon className="w-4 h-4" />
+                              {dropItem.label}
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+
               return (
                 <Link
                   key={item.label}
