@@ -162,7 +162,7 @@ export const servicesData: ServiceData[] = [
     subServices: [
       { name: "Practice Financial Evaluation", icon: "BarChart" },
       { name: "Medical Billing", icon: "FileText" },
-      { name: "Coding Services", icon: "Code" },
+      { name: "Medical Coding", icon: "Code" },
       { name: "Claims Management", icon: "ClipboardCheck" },
       { name: "Revenue Optimization", icon: "TrendingUp" },
       { name: "Compliance & Auditing", icon: "Shield" },
