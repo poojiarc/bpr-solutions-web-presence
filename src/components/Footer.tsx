@@ -154,7 +154,7 @@ const Footer = () => {
 
           {/* Company info */}
           <div>
-            <img src={bprLogo} alt="BPR Solutions" className="h-20 lg:h-24 w-auto" />
+            <img src={bprLogo} alt="BPR Solutions" className="h-28 lg:h-30 w-auto" />
             <p className="text-[hsl(var(--footer-foreground))] text-sm leading-relaxed">
               A global engineering and technology solutions provider specializing in Telecom, GIS, LiDAR, BIM, and CYCLONE Modeling, Survey,Data Annotation, and innovative digital solutions.
             </p>

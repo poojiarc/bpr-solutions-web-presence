@@ -124,7 +124,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link to="/" className="flex-shrink-0">
-            <img src={bprLogo} alt="BPR Solutions" className="h-20 lg:h-24 w-auto" />
+            <img src={bprLogo} alt="BPR Solutions" className="h-28 lg:h-30 w-auto" />
           </Link>
 
           {/* Desktop nav */}
