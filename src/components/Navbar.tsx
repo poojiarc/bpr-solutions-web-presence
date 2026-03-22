@@ -31,6 +31,7 @@ const Navbar = () => {
   const [activeService, setActiveService] = useState(0);
   const [scrolled, setScrolled] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const careersRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
 
   useEffect(() => {
