@@ -43,6 +43,7 @@ const Navbar = () => {
   useEffect(() => {
     setMobileOpen(false);
     setServicesOpen(false);
+    setCareersOpen(false);
   }, [location.pathname]);
 
   useEffect(() => {
