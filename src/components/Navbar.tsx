@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Home, Info, Wrench, GraduationCap, Mail, Briefcase, FolderOpen, Phone, Menu, X, ChevronDown, ChevronRight, Heart, icons } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import bprLogo from "@/assets/bpr-logo.svg";
+import bprLogo from "@/assets/bpr-logo.png";
 import { servicesData } from "@/lib/servicesData";
 
 const getIcon = (name: string): LucideIcon => {
@@ -124,7 +124,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link to="/" className="flex-shrink-0">
-            <img src={bprLogo} alt="BPR Solutions" className="h-16 lg:h-20 w-auto" />
+            <img src={bprLogo} alt="BPR Solutions" className="h-20 lg:h-24 w-auto" />
           </Link>
 
           {/* Desktop nav */}

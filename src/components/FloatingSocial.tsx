@@ -70,6 +70,8 @@
 
 import { Phone, Mail, Instagram, Facebook, Linkedin, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
+import { FaWhatsapp } from "react-icons/fa";
+
 
 const FloatingSocial = () => {
   return (
@@ -102,6 +104,19 @@ const FloatingSocial = () => {
           <Facebook className="w-5 h-5" />
         </IconBox>
       </a>
+{/* WhatsApp */}
+{/* WhatsApp */}
+<a 
+  href="https://wa.me/919676356969" 
+  target="_blank" 
+  rel="noreferrer" 
+  className="group"
+>
+  <IconBox>
+    <FaWhatsapp className="w-5 h-5 text-green-500 group-hover:text-white" />
+  </IconBox>
+</a>
+
 
       {/* LinkedIn */}
       <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" className="group">
