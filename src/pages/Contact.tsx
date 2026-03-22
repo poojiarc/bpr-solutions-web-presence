@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Phone, Mail, MapPin, Clock, Instagram, Send } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Instagram, Send, Facebook, Linkedin } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
 
 const Contact = () => {
