@@ -82,7 +82,15 @@ const cultureSections = [
 
 const Careers = () => {
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
-  const [activeTab, setActiveTab] = useState<"culture" | "jobs">("culture");
+  const [searchParams] = useSearchParams();
+  const tabFromUrl = searchParams.get("tab") as "culture" | "jobs" | null;
+  const [activeTab, setActiveTab] = useState<"culture" | "jobs">(tabFromUrl === "jobs" ? "jobs" : "culture");
+
+  useEffect(() => {
+    if (tabFromUrl === "culture" || tabFromUrl === "jobs") {
+      setActiveTab(tabFromUrl);
+    }
+  }, [tabFromUrl]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
