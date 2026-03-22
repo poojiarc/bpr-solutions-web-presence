@@ -73,11 +73,42 @@ const Navbar = () => {
           </div>
 
           {/* Optional Right Side */}
-          <div className="hidden md:flex gap-4 text-xs">
-            <span className="hover:opacity-80 cursor-pointer">Facebook</span>
-            <span className="hover:opacity-80 cursor-pointer">Instagram</span>
-            <span className="hover:opacity-80 cursor-pointer">LinkedIn</span>
-          </div>
+          <div className="hidden md:flex gap-4 text-xs items-center">
+
+  
+
+  {/* Instagram */}
+  <a
+    href="https://www.instagram.com/bprsolutions.2000?igsh=YnZ2bXh4aG10amU="
+    target="_blank"
+    rel="noreferrer"
+    className="hover:opacity-80"
+  >
+    Instagram
+  </a>
+
+  {/* Facebook */}
+  <a
+    href="https://www.facebook.com/share/1ERFjH3DS7/"
+    target="_blank"
+    rel="noreferrer"
+    className="hover:opacity-80"
+  >
+    Facebook
+  </a>
+
+  {/* LinkedIn */}
+  <a
+    href="https://www.linkedin.com/company/109966290/admin/dashboard/"
+    target="_blank"
+    rel="noreferrer"
+    className="hover:opacity-80"
+  >
+    LinkedIn
+  </a>
+
+</div>
+
         </div>
       </div>
 
