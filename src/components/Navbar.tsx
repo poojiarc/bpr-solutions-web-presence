@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Home, Info, Wrench, GraduationCap, Briefcase, FolderOpen, Phone, Menu, X, ChevronDown, ChevronRight, icons } from "lucide-react";
+import { Home, Info, Wrench, GraduationCap, Briefcase, FolderOpen, Phone, Menu, X, ChevronDown, ChevronRight, Heart, icons } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import bprLogo from "@/assets/bpr-logo.svg";
 import { servicesData } from "@/lib/servicesData";
@@ -9,12 +9,17 @@ const getIcon = (name: string): LucideIcon => {
   return (icons as Record<string, LucideIcon>)[name] || icons["Circle"];
 };
 
+const careersDropdownItems = [
+  { label: "Culture", path: "/careers?tab=culture", icon: Heart },
+  { label: "Jobs", path: "/careers?tab=jobs", icon: Briefcase },
+];
+
 const navItems = [
   { label: "Home", path: "/", icon: Home },
   { label: "About", path: "/about", icon: Info },
   { label: "Services", path: "/services", icon: Wrench, hasDropdown: true },
   { label: "Internships", path: "/internships", icon: GraduationCap },
-  { label: "Careers", path: "/careers", icon: Briefcase },
+  { label: "Careers", path: "/careers", icon: Briefcase, hasCareersDropdown: true },
   { label: "Projects", path: "/projects", icon: FolderOpen },
   { label: "Contact", path: "/contact", icon: Phone },
 ];
@@ -22,9 +27,11 @@ const navItems = [
 const Navbar = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [careersOpen, setCareersOpen] = useState(false);
   const [activeService, setActiveService] = useState(0);
   const [scrolled, setScrolled] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const careersRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -36,12 +43,16 @@ const Navbar = () => {
   useEffect(() => {
     setMobileOpen(false);
     setServicesOpen(false);
+    setCareersOpen(false);
   }, [location.pathname]);
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
         setServicesOpen(false);
+      }
+      if (careersRef.current && !careersRef.current.contains(e.target as Node)) {
+        setCareersOpen(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
@@ -147,6 +158,47 @@ const Navbar = () => {
                             </Link>
                           </div>
                         </div>
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+
+              if (item.hasCareersDropdown) {
+                return (
+                  <div key={item.label} className="relative" ref={careersRef}>
+                    <button
+                      className={`flex items-center gap-1.5 px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
+                        isActive || careersOpen
+                          ? "text-[hsl(var(--glow))]"
+                          : "text-[hsl(var(--nav-foreground))] hover:text-[hsl(var(--glow))]"
+                      }`}
+                      onMouseEnter={() => setCareersOpen(true)}
+                      onClick={() => setCareersOpen(!careersOpen)}
+                    >
+                      <Icon className="w-4 h-4" />
+                      {item.label}
+                      <ChevronDown className={`w-3.5 h-3.5 transition-transform ${careersOpen ? "rotate-180" : ""}`} />
+                    </button>
+
+                    {careersOpen && (
+                      <div
+                        className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[200px] bg-[hsl(var(--nav-bg))] border border-[hsl(var(--border)/0.2)] rounded-xl shadow-2xl shadow-[hsl(var(--glow)/0.1)] overflow-hidden py-2"
+                        onMouseLeave={() => setCareersOpen(false)}
+                      >
+                        {careersDropdownItems.map((dropItem) => {
+                          const DropIcon = dropItem.icon;
+                          return (
+                            <Link
+                              key={dropItem.label}
+                              to={dropItem.path}
+                              className="flex items-center gap-2.5 px-4 py-2.5 text-sm text-[hsl(var(--nav-foreground)/0.7)] hover:text-[hsl(var(--glow))] hover:bg-[hsl(var(--glow)/0.05)] transition-colors"
+                            >
+                              <DropIcon className="w-4 h-4" />
+                              {dropItem.label}
+                            </Link>
+                          );
+                        })}
                       </div>
                     )}
                   </div>
